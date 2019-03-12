@@ -1,0 +1,31 @@
+apply from:"file:generator.gradle"
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.6.RELEASE'
+        java_version = '1.8'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'jacoco'
+
+    group = 'com.wacai.fincx'
+    version = '1.0-SNAPSHOT'
+
+    repositories {
+        mavenCentral()
+        maven { url 'http://repo.caimi-inc.com/nexus/content/groups/public' }
+    }
+}
