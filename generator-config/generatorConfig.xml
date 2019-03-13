@@ -6,12 +6,12 @@
 
     <context id="cnt">
 
-        <plugin type="org.mybatis.generator.plugins.GeneratedXmlFileOverwritePlugin"/>
+    <!--    <plugin type="org.mybatis.generator.plugins.GeneratedXmlFileOverwritePlugin"/>
         <plugin type="org.mybatis.generator.plugins.PaginationMysqlPlugin"/>
         <plugin type="org.mybatis.generator.plugins.CacheMethodPlugin">
             <property name=".*ClearanceCenter#select.*" value="useCache=true"/>
             <property name=".*BranchClearanceCenter#select.*" value="useCache=true"/>
-        </plugin>
+        </plugin>-->
 
         <commentGenerator>
             <property name="suppressAllComments" value="true"/>
@@ -24,20 +24,20 @@
         </javaTypeResolver>
 
         <javaModelGenerator targetPackage="com.iwill.mybatis.dao.model"
-                            targetProject="mybatis-demo/src/main/java"/>
+                            targetProject="src/main/java"/>
 
-        <sqlMapGenerator targetPackage="mapper.gen" targetProject="mybatis-demo/src/main/resources"/>
+        <sqlMapGenerator targetPackage="mapper.gen" targetProject="src/main/resources"/>
 
         <javaClientGenerator targetPackage="com.iwill.mybatis.dao.mapper.gen"
-                             targetProject="mybatis-demo/src/main/java" type="XMLMAPPER">
+                             targetProject="src/main/java" type="XMLMAPPER">
 
         </javaClientGenerator>
 
-     <!--   <table schema="" tableName="product" mapperName="ProductMapper" domainObjectName="ProductDTO">
+        <table schema="" tableName="cnt_product" mapperName="ProductMapper" domainObjectName="ProductDTO">
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
-        </table>-->
-        <table schema="" tableName="user" mapperName="UserMapper" domainObjectName="UserMapperDTO">
+        </table>
+        <table schema="" tableName="cnt_user" mapperName="UserMapper" domainObjectName="UserDTO">
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
