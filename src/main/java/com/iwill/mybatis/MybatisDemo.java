@@ -1,7 +1,7 @@
 package com.iwill.mybatis;
 
-import com.iwill.mybatis.bean.User;
-import com.iwill.mybatis.mapper.UserMapper;
+import com.iwill.mybatis.dao.mapper.ext.UserMapperExt;
+import com.iwill.mybatis.dao.model.UserDTO;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -17,10 +17,10 @@ public class MybatisDemo {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        User user = new User();
+        UserMapperExt userMapper = sqlSession.getMapper(UserMapperExt.class);
+        UserDTO user = new UserDTO();
         user.setName("lisi");
-        List<User> userList = userMapper.findUserListByName(user);
+        List<UserDTO> userList = userMapper.findUserListByName("zhangsan");
         System.out.println(userList.size());
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @ComponentScan("com.iwill.mybatis")
-@MapperScan({"com.iwill.mybatis.mapper"})
+@MapperScan(value = {"com.iwill.mybatis.dao.mapper.ext", "com.iwill.mybatis.dao.mapper.gen"})
 @EnableTransactionManagement(proxyTargetClass = true)
 public class MyBatisApplication {
 

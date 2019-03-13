@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     private UserMapperExt userMapperExt;
 
-    @GetMapping("get-user-info")
+    @GetMapping("get-userInfo")
     public String getUserInfo() {
         List<UserDTO> userList = userMapperExt.findUserListByName("ZHANGSAN");
         return "SUCCESS";
