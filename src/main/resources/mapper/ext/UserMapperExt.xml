@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.iwill.mybatis.dao.mapper.ext.UserMapperExt">
+<mapper namespace="com.iwill.mybatis.dao.mapper.ext.UserMapperExt" >
     <resultMap id="BaseResultMap" type="com.iwill.mybatis.dao.model.UserDTO">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="name" jdbcType="VARCHAR" property="name" />
         <result column="age" jdbcType="INTEGER" property="age" />
     </resultMap>
+<!--
+    <cache/>-->
 
     <select id="findUserListByName" parameterType="java.lang.String" resultMap="BaseResultMap">
-        SELECT * FROM USER WHERE name =${name}
+        SELECT * FROM CNT_USER WHERE name =#{name}
     </select>
+
+    <update id="updateByName" parameterType="map">
+        UPDATE cnt_user
+        SET age = #{age}
+        WHERE name = #{name}
+    </update>
+
+    <update id="update" parameterType="map">
+        UPDATE cnt_user
+        SET age = #{age}
+        WHERE ${columnName} = #{name}
+    </update>
 </mapper>

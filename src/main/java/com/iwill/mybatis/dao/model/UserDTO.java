@@ -1,11 +1,25 @@
 package com.iwill.mybatis.dao.model;
 
-public class UserDTO {
+import java.io.Serializable;
+
+public class UserDTO implements Serializable {
+
+    private static final long serialVersionUID = -2533018270773798450L;
+
     private Integer id;
 
     private String name;
 
     private Integer age;
+
+    public UserDTO() {
+
+    }
+
+    public UserDTO(String name, Integer age) {
+        this.name = name;
+        this.age = age;
+    }
 
     public Integer getId() {
         return id;
