@@ -6,8 +6,6 @@
         <result column="name" jdbcType="VARCHAR" property="name" />
         <result column="age" jdbcType="INTEGER" property="age" />
     </resultMap>
-<!--
-    <cache/>-->
 
     <select id="findUserListByName" parameterType="java.lang.String" resultMap="BaseResultMap">
         SELECT * FROM CNT_USER WHERE name =#{name}

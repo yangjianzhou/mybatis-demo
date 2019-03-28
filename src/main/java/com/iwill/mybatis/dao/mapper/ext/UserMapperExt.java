@@ -13,4 +13,5 @@ public interface UserMapperExt extends UserMapper {
     int updateByName(@Param("name") String name ,@Param("age") int age);
 
     int update(@Param("columnName") String columnName ,@Param("name") String name,@Param("age") int age);
+
 }
