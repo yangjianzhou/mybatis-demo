@@ -7,11 +7,11 @@
     <settings>
         <setting name="localCacheScope" value="SESSION"/>
         <setting name="cacheEnabled" value="true"/>
-   <!--     &lt;!&ndash;开启驼峰式命名，数据库的列名能够映射到去除下划线驼峰命名后的字段名&ndash;&gt;
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
-        <setting name="logImpl" value="LOG4J"/>-->
-        <!--<setting name="checkMapperMethodRelatedMappedStatementExist" value="true"/>-->
     </settings>
+
+    <typeAliases>
+        <typeAlias type="com.iwill.mybatis.druid.DruidDataSourceFactory" alias="DRUID" />
+    </typeAliases>
 
     <environments default="development">
         <environment id="development">
@@ -24,7 +24,17 @@
                 <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true"/>
                 <property name="username" value="root"/>
                 <property name="password" value="12345678"/>
+                <property name="poolMaximumActiveConnections" value="2"/>
+                <property name="poolMaximumIdleConnections" value="2"/>
             </dataSource>
+
+<!--            <dataSource type="DRUID">
+              &lt;!&ndash;  &lt;!&ndash;这里会替换为local-mysql.properties中的对应字段的值&ndash;&gt;&ndash;&gt;
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true"/>
+                <property name="username" value="root"/>
+                <property name="password" value="12345678"/>
+            </dataSource>-->
         </environment>
     </environments>
 
